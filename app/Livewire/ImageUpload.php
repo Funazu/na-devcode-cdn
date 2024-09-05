@@ -17,7 +17,7 @@ class ImageUpload extends Component
     public function save()
     {
         $this->validate([
-            'files.*' => 'image|max:1024', // Validasi setiap file adalah gambar dan maksimal 1MB
+            'files.*' => 'image|max:51200', // Validasi setiap file adalah gambar dan maksimal 1MB
         ]);
 
         foreach ($this->files as $file) {
@@ -56,8 +56,8 @@ class ImageUpload extends Component
         session()->flash('message', 'Image deleted successfully.');
     }
 
-    public function mount()
-    {
-        $this->file = Image::all();
-    }
+    // public function mount()
+    // {
+    //     $this->file = Image::all();
+    // }
 }
