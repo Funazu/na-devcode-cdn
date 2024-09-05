@@ -17,9 +17,9 @@
                 <form wire:submit.prevent="save">
                     <div class="mb-4">
                         <label for="file" class="block text-gray-700 text-sm font-bold mb-2">Select Files:</label>
-                        <input type="file" id="file" wire:model="files" class="block mt-1 w-full" multiple> <!-- Multiple file input -->
+                        <input type="file" id="file" wire:model="fileuploads" class="block mt-1 w-full" multiple> <!-- Multiple file input -->
 
-                        @error('files.*')
+                        @error('fileuploads.*')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                     </div>

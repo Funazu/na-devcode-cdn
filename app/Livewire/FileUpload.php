@@ -11,15 +11,15 @@ class FileUpload extends Component
 {
     use WithFileUploads;
 
-    public $files = []; // Array untuk menyimpan multiple file
+    public $fileuploads = []; // Array untuk menyimpan multiple file
 
     public function save()
     {
         $this->validate([
-            'files.*' => 'required|mimes:pdf,doc,docx,txt,zip|max:51200', // Validasi file multiple
+            'fileuploads.*' => 'required|file|max:51200', // Validasi file multiple
         ]);
 
-        foreach ($this->files as $file) {
+        foreach ($this->fileuploads as $file) {
             $path = $file->store('files', 'public');
 
             File::create([
@@ -30,14 +30,16 @@ class FileUpload extends Component
         }
 
         session()->flash('message', 'Files uploaded successfully.');
-        $this->reset('files'); // Reset input file setelah upload
+        $this->reset('fileuploads'); // Reset input file setelah upload
     }
 
 
     public function render()
     {
-        $files = File::all();
-        return view('livewire.file-upload', compact('files'))->layout('layouts.app');
+        $files = File::latest()->get();
+        return view('livewire.file-upload', [
+            'files' => $files
+        ])->layout('layouts.app');
     }
 
     public function deleteFile($id)
