@@ -15,11 +15,13 @@ class ImageUpload extends Component
 
     public function save()
     {
+        info("njayyyy");
         $this->validate([
             'files.*' => 'file|max:51200', // Validasi setiap file adalah gambar dan maksimal 1MB
         ]);
 
         foreach ($this->files as $file) {
+            info(json_encode($file));
             $name = $file->getClientOriginalName();
             $path = $file->store('images'); // Simpan file ke storage
             $cekImage = Image::create([
