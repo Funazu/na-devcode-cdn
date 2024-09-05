@@ -26,7 +26,6 @@ class ImageUpload extends Component
                 'path' => $path,
                 'name' => $name, // Simpan nama file di database
             ]); // Simpan informasi file ke database
-            dd($cekImage);
         }
 
         session()->flash('message', 'Images uploaded successfully.');
