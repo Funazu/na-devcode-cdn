@@ -18,7 +18,11 @@
                     
                     <x-nav-link href="{{ route('upload') }}" :active="request()->routeIs('upload')">
                         {{ __('Upload Image') }}
-                    </x-nav-link>                    
+                    </x-nav-link>       
+
+                    <x-nav-link href="{{ route('file-upload') }}" :active="request()->routeIs('file-upload')">
+                        {{ __('Upload File') }}
+                    </x-nav-link>                  
                 </div>
             </div>
 

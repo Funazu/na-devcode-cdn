@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\FileUpload;
 use App\Livewire\ImageUpload;
 use Illuminate\Support\Facades\Route;
 
@@ -27,4 +28,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::get('/upload/image', ImageUpload::class)->name('upload');
+    Route::get('/upload/file', FileUpload::class)->name('file-upload');
 });

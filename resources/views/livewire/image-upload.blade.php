@@ -70,7 +70,7 @@
                                 </button>
 
                                 <!-- Download Button -->
-                                <button onclick="window.location.href='{{ asset('storage/' . $image->path) }}'"
+                                <button onclick="window.open('{{ asset('storage/' . $image->path) }}', '_blank')"
                                     download="{{ $image->name }}" class="action-button">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke="currentColor" class="w-6 h-6">
@@ -119,8 +119,6 @@
             updateLayout();
         });
 
-
-    
         function copyToClipboard(link) {
             navigator.clipboard.writeText(link).then(function() {
                 alert('Link copied to clipboard');
