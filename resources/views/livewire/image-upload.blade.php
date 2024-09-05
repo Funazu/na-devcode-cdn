@@ -68,6 +68,16 @@
                                             d="M6 18L18 6M6 6l12 12" />
                                     </svg>
                                 </button>
+
+                                <!-- Download Button -->
+                                <button onclick="window.location.href='{{ asset('storage/' . $image->path) }}'"
+                                    download="{{ $image->name }}" class="action-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 3v9m0 0l-3-3m3 3l3-3m-3 3v9" />
+                                    </svg>
+                                </button>
                             </div>
 
                             <div class="image-name">{{ $image->name }}</div>
