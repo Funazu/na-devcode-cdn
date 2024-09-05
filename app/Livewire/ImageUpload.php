@@ -23,7 +23,8 @@ class ImageUpload extends Component
         foreach ($this->files as $file) {
             $name = $file->getClientOriginalName();
             $path = $file->store('images'); // Simpan file ke storage
-            Image::create(['path' => $path, 'name' => $name]); // Simpan informasi file ke database
+            $cekImage = Image::create(['path' => $path, 'name' => $name]); // Simpan informasi file ke database
+            dd($cekImage);
         }
 
         session()->flash('message', 'Images uploaded successfully.');
