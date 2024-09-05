@@ -21,6 +21,7 @@ class ImageUpload extends Component
         ]);
 
         foreach ($this->files as $file) {
+            info($file->getClientOriginalName());
             info(json_encode($file));
             $name = $file->getClientOriginalName();
             $path = $file->store('images'); // Simpan file ke storage
